@@ -1,0 +1,254 @@
+/* Reset all default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2442d6, #181b7c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(135deg, #181b7c, #181b7c);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #787cdd, #181b7c);
+    }
+
+    100% {
+        background: linear-gradient(135deg, #787cdd, #181b7c);
+    }
+}
+
+/* Floating coins */
+.coin {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatCoin 5s linear infinite;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    animation-delay: calc(random() * 3s);
+    animation-iteration-count: infinite;
+}
+
+.coin.btc {
+    background-image: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png');
+}
+
+.coin.usdt {
+    background-image: url('https://cryptologos.cc/logos/tether-usdt-logo.png');
+}
+
+.coin.eth {
+    background-image: url('https://cryptologos.cc/logos/ethereum-eth-logo.png');
+}
+
+.coin.ltc {
+    background-image: url('https://cryptologos.cc/logos/litecoin-ltc-logo.png');
+}
+
+.coin.doge {
+    background-image: url('https://cryptologos.cc/logos/dogecoin-doge-logo.png');
+}
+
+/* Coin float animation */
+@keyframes floatCoin {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-40px) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(90deg);
+    }
+
+    75% {
+        transform: translateY(40px) rotate(135deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(180deg);
+    }
+}
+
+/* Coin container */
+.coin-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    position: relative;
+    animation: slideIn 1s ease-out;
+    z-index: 10;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #2b5278;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Form container styles */
+.form-container {
+    margin-bottom: 25px;
+}
+
+/* Input fields styling */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #ff7e5f;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
+    transition: box-shadow 0.3s ease-out;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #3c7dbe;
+    transform: scale(1.05);
+}
+
+/* Links */
+a {
+    color: #2b5278;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+    font-size: 0.9rem;
+    color: black;
+    margin-top: 5px;
+    display: block;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: calc(100% - 40px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.password-container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.eye-icon.visible {
+    background-color: white;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #c623e7;
+    border-top: 5px solid #535dea;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
